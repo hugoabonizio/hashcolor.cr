@@ -15,4 +15,10 @@ describe Hashcolor do
     result1.size.should eq(6), result1
     Hashcolor.generate(value2).should eq(result1)
   end
+
+  it "generates a color given a set" do
+    Hashcolor.colors = ["006064", "8BC34A", "FF9800"]
+    Hashcolor.colors.not_nil!.should contain(Hashcolor.generate("hugo"))
+    Hashcolor.colors.not_nil!.should contain(Hashcolor.generate("abonizio"))
+  end
 end
